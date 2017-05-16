@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="grid.css">
+</head>
+<body>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="grid.js"></script>
+	
+	<div class="container">
+	</div>
+	<div class="add-button"> + </div>
+	<div class="remove-button"> - </div>
+
+	<script type="text/javascript">
+		const grid = zgrid($('.container'));
+
+		$(window).on('resize', function() {
+			grid.layout();
+		});
+
+		const buttonStyle = {
+			position: 'absolute',
+			right: '20px',
+			width: '44px',
+			height: '44px',
+			lineHeight: '44px',
+			backgroundColor: '#000',
+			borderRadius: '50%',
+			color: '#fff',
+			textAlign: 'center',
+			fontSize: '24px'
+		};
+
+		$('.add-button').css(buttonStyle).css({bottom: '20px'});
+		$('.remove-button').css(buttonStyle).css({bottom: '76px'});
+
+		$('.add-button').on('click', function() {
+			grid.add();
+		});
+
+		$('.remove-button').on('click', function() {
+			grid.remove();
+		});
+	</script>
+</body>
+</html>
